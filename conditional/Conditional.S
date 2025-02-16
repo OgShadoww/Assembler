@@ -18,8 +18,8 @@ equal_case:
 
 greater_case:
     dec eax
-    jpm _start
+    jmp _start
 
 lower_case:
     inc eax
-    jpm _start
+    jmp _start
