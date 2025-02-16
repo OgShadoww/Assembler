@@ -10,7 +10,7 @@ _start:
     pop ebx
     pop ecx
 
-    mul ebx, ecx
+    mul ebx
 
     mov eax, 0
     mov ebx, 1
