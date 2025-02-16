@@ -1,5 +1,5 @@
 section .text   
-    _start
+    global _start
 
 _start:
     mov eax, 10
