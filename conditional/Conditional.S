@@ -4,11 +4,12 @@ section .text
 _start:
     mov eax, 10
 
+
+check_value:
     cmp eax, 10
     je equal_case
     jg greater_case
     jl lower_case
-
 
 equal_case:
     mov eax, 1
