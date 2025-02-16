@@ -1,7 +1,5 @@
 # 🚀 Learning Assembly (x86 NASM)
 
-![GitHub Forks](https://img.shields.io/github/forks/OgShadoww?style=social)  
-
 ## 📌 Overview  
 This repository contains structured **Assembly (NASM x86)** code examples for learning **low-level programming**.  
 It covers **arithmetic operations, conditional jumps, memory management, and system calls**.
