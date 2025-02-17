@@ -4,8 +4,10 @@ secton .bss
 section .data
     message1 db "Hello, Think a number between 1 and 30 then, I try to guess"
     len1 equ $ - message1
-    message2 db "This number less then 15?(For yes: 1, for no -1)" 
-    len2 equ $ - message2
+    question1 db "This number less then?" 
+    len2 equ $ - question1
+    question2 db "(For yes: 1, for no -1)"
+    len3 equ $ - question2
 
 section .text
     _start
