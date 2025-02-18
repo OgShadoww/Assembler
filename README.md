@@ -8,3 +8,5 @@ It covers **arithmetic operations, conditional jumps, memory management, and sys
 
 ---
 
+# Projects:
+[Binary search](./Project1/main.s)
