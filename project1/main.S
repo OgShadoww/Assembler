@@ -11,6 +11,9 @@ section .data
     
     num1 db 1
 
+    finalMessage db "Your number is:"
+    len4 equ $ - finalMessage
+
 section .text
     _start
 
@@ -95,5 +98,19 @@ greater_case:
 
 
 equal:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, finalMessage
+    mov edx, len4
+    int 0x80
+
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, buffer1
+    mov edx, 1
+    int 0x80
+
     mov eax, 1
+    xor ebx, ebx
+    mov ebx, 0
     int 0x80
