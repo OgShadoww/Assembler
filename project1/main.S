@@ -126,6 +126,11 @@ equal:
     mov edx, len4
     int 0x80
 
+    ; Convert result into ASCI
+    mov al, [num1]    
+    add al, '0'       
+    mov [buffer1], al 
+
     ; Output result
     mov eax, 4
     mov ebx, 1
@@ -133,8 +138,10 @@ equal:
     mov edx, 1
     int 0x80
 
+    mov edx, 1
+    int 0x80
+
     ; End program
     mov eax, 1
     xor ebx, ebx
-    mov ebx, 0
     int 0x80
