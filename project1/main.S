@@ -29,10 +29,10 @@ check_input:
     je equal
 
     cmp byte [buffer1], '1' 
-    jg greater_case
+    je greater_case
 
     cmp byte [buffer1], '-'
-    jl lower_case
+    je lower_case
 
     ; After check start again same process
     call guess_message   
