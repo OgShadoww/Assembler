@@ -15,8 +15,7 @@ section .text
     _start
 
 _start:
-    mov ax, 15
-    mov [num1], ax
+    mov byte [num1], 15
 
     jmp guess_message
     jmp guess_result
