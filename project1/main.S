@@ -16,14 +16,16 @@ section .text
 
 _start:
     mov byte [num1], 15
-
     jmp guess_message
-    jmp guess_result
 
-    cmp byte [buffer1], 0
-    jg greater_case
-    jl lower_case
+    cmp byte [buffer1], '0'
     je equal
+
+    cmp byte [buffer1], '1' 
+    jg greater_case
+
+    cmp byte [buffer1], '-' 
+    jl lower_case
 
   
 guess_message:
@@ -33,20 +35,21 @@ guess_message:
     mov edx, len1
     int 0x80
     xor al, al
-    mov al, [num1]
-    add al, '0'
-    mov buffer1, al
-    mov ecx, '0' + num1
+    mov al, [num1]   
+    add al, '0'      
+    mov [buffer1], al
     mov edx, 1
     int 0x80
     mov ecx, message2
     mov edx, len2
     int 0x80
 
+    jmp guess_result
+
 guess_result:
     mov eax, 3
     mov ebx, 0
-    mov ecx, [buffer1]
+    mov ecx, buffer1
     mov edx, 1
     int 0x80
 
@@ -61,8 +64,9 @@ greater_case:
     mov cx, [num1]
     xor ah, ah
     mov bl, 2
-    div al
-    add cx, ax
+    div bl
+    add al, [num1]
+    mov [num1], al
 
 
 equal:
