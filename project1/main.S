@@ -18,8 +18,8 @@ _start:
     mov ax, 15
     mov num1, ax
 
-    jpm guess_message
-    jpm guess_result
+    jmp guess_message
+    jmp guess_result
 
     cmp buffer1, 0
     jg
