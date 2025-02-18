@@ -8,7 +8,7 @@ section .data
     len2 equ $ - question1
     question2 db "(For yes: 1, for no -1, for equal 0)"
     len3 equ $ - question2
-    finalMessage db "Your number is: ", 0
+    finalMessage db "Your number is: ", 10, 0
     len4 equ $ - finalMessage
     ; All this is messages
     
