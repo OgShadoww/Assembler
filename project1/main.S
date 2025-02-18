@@ -1,4 +1,4 @@
-secton .bss
+section .bss
     buffer1 resb, 1
 
 section .data
@@ -47,8 +47,18 @@ guess_result:
 
 lower_case:
     mov ax, num1
+    mov al, 2
     div al
     mov num1, ax
     xor ax, ax
     xor al, al
 
+greater_case:
+    mov cx, num1
+    mov ax, cx
+    mov al, 2
+    div al
+    add cx, ax
+    xor ax, ax
+    xor al, al
+    xor cx, cx
