@@ -21,8 +21,10 @@ _start:
     jmp guess_message
     jmp guess_result
 
-    cmp buffer1, 0
-    jg
+    cmp byte [buffer1], 0
+    jg greater_case
+    jl lower_case
+    je equal
 
   
 guess_message:
@@ -31,7 +33,7 @@ guess_message:
     mov ecx, message1
     mov edx, len1
     int 0x80
-    mov ecx, num1
+    mov ecx, '0' + num1
     mov edx, 1
     int 0x80
     mov ecx, message2
@@ -46,7 +48,7 @@ guess_result:
     int 0x80
 
 lower_case:
-    mov ax, num1
+    mov ax, [num1]
     mov al, 2
     div al
     mov num1, ax
@@ -54,7 +56,7 @@ lower_case:
     xor al, al
 
 greater_case:
-    mov cx, num1
+    mov cx, [num1]
     mov ax, cx
     mov al, 2
     div al
@@ -62,3 +64,8 @@ greater_case:
     xor ax, ax
     xor al, al
     xor cx, cx
+
+
+equal:
+    mov eax, 1
+    int 0x80
