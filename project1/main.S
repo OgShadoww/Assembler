@@ -8,7 +8,7 @@ section .data
     len2 equ $ - question1
     question2 db "(For yes: 1, for no -1, for equal 0)"
     len3 equ $ - question2
-    finalMessage db "Your number is:"
+    finalMessage db "Your number is: ", 0
     len4 equ $ - finalMessage
     ; All this is messages
     
@@ -49,6 +49,13 @@ guess_message:
     mov ebx, 1
     mov ecx, message1
     mov edx, len1
+    int 0x80
+
+    ; Write question 1
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, question1
+    mov edx, len2
     int 0x80
 
     ; Converting number into ASCI
@@ -135,9 +142,6 @@ equal:
     mov eax, 4
     mov ebx, 1
     mov ecx, buffer1
-    mov edx, 1
-    int 0x80
-
     mov edx, 1
     int 0x80
 
